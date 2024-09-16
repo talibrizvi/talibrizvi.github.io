@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+    background-color: lightgreen;
+    overflow: hidden; /* Prevent scrollbars from appearing during animation */
+}
+
+.letter-container {
+    display: inline-block;
+    position: relative;
+}
+
+.Heading {
+    font-size: 36px;
+    margin: 20px 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Styling for individual letters */
+.letter {
+    display: inline-block;
+    transform: translateY(-500px) rotateX(0);
+    animation: fall 3s ease forwards;
+    opacity: 0;
+    color: maroon; /* Original color */
+}
+
+/* Ensure spaces between words */
+.letter.space {
+    width: 8px; /* Adjust width for the space between letters */
+}
+
+/* Keyframes for the letter fall and bounce-back effect */
+@keyframes fall {
+    0% {
+        opacity: 0;
+        transform: translateY(-500px) rotateX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(200px) rotateX(80deg); /* Letters "flatten" */
+        color: lightgreen;
+    }
+    70% {
+        transform: translateY(0px) rotateX(0deg); /* Stand back up */
+        color: lightgreen; /* Ensure original color is restored */
+    }
+    100% {
+        opacity: 1; /* Ensure letters are visible at the end */
+        transform: translateY(0px); /* Reset position */
+    }
+}
